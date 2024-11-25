@@ -1,13 +1,18 @@
 package com.udemy.course.resources;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udemy.course.entities.User;
+import com.udemy.course.service.UserService;
 
 /* @RestController: Responsável por lidar com requisições HTTP e retornar respostas, geralmente no formato JSON.
 *
@@ -22,9 +27,19 @@ import com.udemy.course.entities.User;
 @RequestMapping(value = "/users")
 public class UserResource {
 
+	@Autowired // Injeção de dependência
+	private UserService service;
+	
 	@GetMapping
-	public ResponseEntity<User> findAll() {
-		User user = new User((int) 1l, "Maria", "maria@gmail.com", "99999999", "12345");
-		return ResponseEntity.ok().body(user);
+	public ResponseEntity<List<User>> findAll() {
+		List<User> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<User> findById (@PathVariable Long id){
+		User obj = service.findById(id);
+		return ResponseEntity.ok(obj);
+		
 	}
 }
