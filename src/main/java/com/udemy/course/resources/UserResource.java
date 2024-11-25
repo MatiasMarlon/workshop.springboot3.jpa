@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.udemy.course.entities.User;
 import com.udemy.course.service.UserService;
 
-/* @RestController: Responsável por lidar com requisições HTTP e retornar respostas, geralmente no formato JSON.
+/* @RestController: Responsável por lidar com requisições HTTP. Indica que essa classe é um controlador REST.
 *
 * @RequestMapping(value = "/users"): Define o caminho base (base path) para os endpoints da classe. Todas as requisições HTTP 
 * que começarem com "/users" serão direcionadas para os métodos dessa classe.

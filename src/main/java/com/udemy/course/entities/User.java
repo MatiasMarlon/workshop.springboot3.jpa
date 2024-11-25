@@ -1,9 +1,12 @@
 package com.udemy.course.entities;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +14,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+/* 
+ JsonIgnore - Evitar loops infinitos: Em casos de relações bidirecionais entre objetos, a anotação pode prevenir que a serialização entre em um loop infinito.
+ */
 
 @Entity
 @Table(name = "tb_user") // Define o nome da tabela
@@ -25,6 +32,7 @@ public class User implements Serializable {
 	private String phone;
 	private String password;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
 	public User () {
