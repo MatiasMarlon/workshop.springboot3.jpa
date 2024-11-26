@@ -12,15 +12,14 @@ import com.udemy.course.repositories.ProductRepository;
 @Service
 public class ProductService {
 
-	@Autowired // Injeção de dependência
+	@Autowired 
 	private ProductRepository repository;
 	
-	// Método buscar todos os usuarios do banco de dados
 	public List<Product> findAll(){
 		return repository.findAll();
 	}
 	
-	// Buscar usuario por Id
+	
 	public Product findById(Long id) {
 		Optional<Product> obj = repository.findById(id);
 		return obj.get();

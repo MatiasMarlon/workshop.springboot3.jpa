@@ -12,15 +12,15 @@ import com.udemy.course.repositories.CategoryRepository;
 @Service
 public class CategoryService {
 
-	@Autowired // Injeção de dependência
+	@Autowired 
 	private CategoryRepository repository;
 
-	// Método buscar todos os usuarios do banco de dados
+
 	public List<Category> findAll() {
 		return repository.findAll();
 	}
 
-	// Buscar usuario por Id
+	
 	public Category findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
 		return obj.get();

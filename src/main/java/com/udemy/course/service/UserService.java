@@ -12,15 +12,14 @@ import com.udemy.course.repositories.UserRepository;
 @Service
 public class UserService {
 
-	@Autowired // Injeção de dependência
+	@Autowired 
 	private UserRepository repository;
 	
-	// Método buscar todos os usuarios do banco de dados
 	public List<User> findAll(){
 		return repository.findAll();
 	}
 	
-	// Buscar usuario por Id
+	
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		return obj.get();
