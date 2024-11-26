@@ -18,6 +18,10 @@ import jakarta.persistence.Table;
 // Anotação @JsonFormat para Formatação de Datas em JSON.
 // utilizada em Java para controlar a formatação de datas e horas durante a serialização e desserialização de objetos JSON.
 
+/* 
+@ManyToOne: Indica que um pedido (Order) tem muitos clientes (um para muitos).
+@JoinColumn: A coluna client_id na tabela Pedido será a chave estrangeira que se refere à tabela Cliente.
+*/
 @Entity
 @Table(name = "tb_order")
 public class Order implements Serializable {

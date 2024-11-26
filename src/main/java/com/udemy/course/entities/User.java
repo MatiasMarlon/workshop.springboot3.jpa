@@ -16,7 +16,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /* 
- JsonIgnore - Evitar loops infinitos: Em casos de relações bidirecionais entre objetos, a anotação pode prevenir que a serialização entre em um loop infinito.
+ @JsonIgnore: Evitar loops infinitos: Em casos de relações bidirecionais entre objetos, a anotação pode prevenir que a serialização entre em um loop infinito.
+ @Entity: Indica que uma classe Java representa uma entidade que será persistida em um banco de dados.
+ @Table: Permite personalizar o nome da tabela no banco de dados e outras configurações relacionadas à tabela.
+ @Id: Marca um atributo da classe como sendo a chave primária da entidade.
+ @GeneratedValue: Indica que o valor da chave primária será gerado automaticamente pelo banco de dados.
+ 
  */
 
 @Entity
